@@ -1,0 +1,27 @@
+--cpu Cortex-M3
+".\obj\main.o"
+".\obj\stm32f10x_it.o"
+".\obj\stm3210b_lcd.o"
+".\obj\stm32f10x_spi.o"
+".\obj\misc.o"
+".\obj\stm32f10x_flash.o"
+".\obj\stm32f10x_gpio.o"
+".\obj\stm32f10x_rcc.o"
+".\obj\stm32f10x_usart.o"
+".\obj\stm32f10x_adc.o"
+".\obj\startup_stm32f10x_md.o"
+".\obj\pid_c_stm32.o"
+".\obj\iir_stm32.o"
+".\obj\cr4_fft_64_stm32.o"
+".\obj\cr4_fft_256_stm32.o"
+".\obj\cr4_fft_1024_stm32.o"
+".\obj\fir_stm32.o"
+".\obj\iirarma_stm32.o"
+".\obj\pid_stm32.o"
+".\obj\core_cm3.o"
+".\obj\system_stm32f10x.o"
+".\obj\adc.o"
+--strict --scatter ".\Obj\STM3210B-EVAL.sct"
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\List\STM3210B-EVAL.map" -o .\Obj\STM3210B-EVAL.axf

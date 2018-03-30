@@ -22,11 +22,12 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f10x.h"
 #include <math.h>
-#include "stm3210b_lcd.h"
 #include "stm32_dsp.h"
 #include "table_fft.h"
-
-
+#include "stm32f10x_usart.h"
+#include "adc.h"
+#include "stm32f10x_adc.h"
+#include "stdio.h"
 /** @addtogroup FFT_Demo
   * @{
   */ 
@@ -36,28 +37,31 @@
 /* Private define ------------------------------------------------------------*/
 #define PI2  6.28318530717959
 
-#define NPT 64            /* NPT = No of FFT point*/
+#define NPT 1024          /* NPT = No of FFT point*/
 #define DISPLAY_RIGHT 310 /* 224 for centered, 319 for right-aligned */
 #define DISPLAY_LEFT 150  /* 224 for centered, 319 for right-aligned */
+#define LED PBout(5)
+
+USART_InitTypeDef USART_InitStructure;
+GPIO_InitTypeDef GPIO_InitStructure;
 
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
 extern uint16_t TableFFT[];
 extern volatile uint32_t TimingDelay ;
-long lBUFIN[NPT];         /* Complex input vector */
-long lBUFOUT[NPT];        /* Complex output vector */
-long lBUFMAG[NPT + NPT/2];/* Magnitude vector */
+uint32_t lBUFIN[NPT];         /* Complex input vector */
+uint32_t lBUFOUT[NPT];        /* Complex output vector */
+uint32_t lBUFMAG[NPT + NPT/2];/* Magnitude vector */
 
 /* Private function prototypes -----------------------------------------------*/
 void MyDualSweep(uint32_t freqinc1,uint32_t freqinc2);
 void MygSin(long nfill, long Fs, long Freq1, long Freq2, long Ampli);
-void powerMag(long nfill, char* strPara);
-void In_displayWaveform(uint32_t DisplayPos);
-void Out_displayWaveform(uint32_t DisplayPos);
-void displayPowerMag(uint32_t DisplayPos, uint32_t scale);
-void DisplayTitle(void);
 void DSPDemoInit(void);
-
+void STM_EVAL_COMInit(USART_InitTypeDef* USART_InitStruct);
+void powerMag(long nfill, char* strPara);
+void Send_String(const char *Data);
+void LED_Init(void);
+void adcfft(void);
 /* Private functions ---------------------------------------------------------*/
 
 
@@ -70,110 +74,61 @@ int main(void)
 {
 
   DSPDemoInit();
-  DisplayTitle();
-
+	STM_EVAL_COMInit(&USART_InitStructure);
+  LED_Init();
+	Adc_Init();
   while (1)
   {
-    MyDualSweep(30,30);
-  }
+		adcfft();
+	}
 }
 
 
-
-/**
-  * @brief  Produces a combination of two sinewaves as input signal
-  * @param eq1: frequency increment for 1st sweep
-  *   Freq2: frequency increment for 2nd sweep
-  * @retval : None
-  */
-void MyDualSweep(uint32_t freqinc1,uint32_t freqinc2)
+void adcfft(void)
 {
-  uint32_t freq;
-
-  for (freq=40; freq <4000; freq+=freqinc1)
-  {
-    MygSin(NPT, 8000, freq, 0, 32767);
-    GPIOC->BSRR = GPIO_Pin_7;
-    
-    cr4_fft_64_stm32(lBUFOUT, lBUFIN, NPT);
-
-    GPIOC->BRR = GPIO_Pin_7;
-    powerMag(NPT,"2SIDED");
-    In_displayWaveform(DISPLAY_RIGHT);
-
-    displayPowerMag(DISPLAY_RIGHT, 9);
-
-    while (GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_9) == 0x00);
-  }
-
-  for (freq=40; freq <4000; freq+=freqinc2)
-  {
-    MygSin(NPT, 8000, freq, 160, 32767/2);
-    GPIOC->BSRR = GPIO_Pin_7;
-    
-    cr4_fft_64_stm32(lBUFOUT, lBUFIN, NPT);
-   
-    GPIOC->BRR = GPIO_Pin_7;
-    powerMag(NPT,"2SIDED");
-    In_displayWaveform(DISPLAY_LEFT);
-    displayPowerMag(DISPLAY_LEFT, 8);
-
-    while (GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_9) == 0x00);
-  }
-
+	int i;
+	char j[8];
+	for(i=0;i<NPT;i++)
+	 {
+     lBUFIN[i]=(Get_Adc(ADC_Channel_8))<<16;
+	 }
+	 cr4_fft_1024_stm32(lBUFOUT,lBUFIN, NPT);
+	 powerMag(NPT,"2SIDED");
+	 for(i=0;i<NPT/2;i++)
+	 {
+     sprintf(j,"%ld",lBUFMAG[i]);
+     Send_String(j);
+	 }
 }
 
-
-
-/**
-  * @brief  Produces a combination of two sinewaves as input signal
-  * @param ill: length of the array holding input signal
-  *   Fs: sampling frequency
-  *   Freq1: frequency of the 1st sinewave
-  *   Freq2: frequency of the 2nd sinewave
-  *   Ampli: scaling factor
-  * @retval : None
-  */
-void MygSin(long nfill, long Fs, long Freq1, long Freq2, long Ampli)
+void LED_Init(void)
 {
  
-  uint32_t i;
-  float fFs, fFreq1, fFreq2, fAmpli;
-  float fZ,fY;
+ GPIO_InitTypeDef  GPIO_InitStructure;
 
-  fFs = (float) Fs;
-  fFreq1 = (float) Freq1;
-  fFreq2 = (float) Freq2;
-  fAmpli = (float) Ampli;
-
-  for (i=0; i < nfill; i++)
-  {
-    fY = sin(PI2 * i * (fFreq1/fFs)) + sin(PI2 * i * (fFreq2/fFs));
-    fZ = fAmpli * fY;
-    lBUFIN[i]= ((short)fZ) << 16 ;  /* sine_cosine  (cos=0x0) */
-  }
+ RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);	 //Ê¹ÄÜPB,PE¶Ë¿ÚÊ±ÖÓ
+ GPIO_InitStructure.GPIO_Pin = GPIO_Pin_5;				 //LED0-->PB.5 ¶Ë¿ÚÅäÖÃ
+ GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		 //ÍÆÍìÊä³ö
+ GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;		 //IO¿ÚËÙ¶ÈÎª50MHz
+ GPIO_Init(GPIOB, &GPIO_InitStructure);					 //¸ù¾ÝÉè¶¨²ÎÊý³õÊ¼»¯GPIOB.5
+ GPIO_SetBits(GPIOB,GPIO_Pin_5);						 //PB.5 Êä³ö¸ß
 }
 
 
-
-
-/**
-  * @brief  Removes the aliased part of the spectrum (not tested)
-  * @param ill: length of the array holding power mag
-  * @retval : None
-  */
-void onesided(long nfill)
+void Send_String(const char *Data)
 {
-  uint32_t i;
-  
-  lBUFMAG[0] = lBUFMAG[0];
-  lBUFMAG[nfill/2] = lBUFMAG[nfill/2];
-  for (i=1; i < nfill/2; i++)
-  {
-    lBUFMAG[i] = lBUFMAG[i] + lBUFMAG[nfill-i];
-    lBUFMAG[nfill-i] = 0x0;
-  }
+	 u8 i;
+   for(i=0;Data[i]!=0x00;i++)
+	 {
+	   USART_SendData(USART1,Data[i]);//Ïò´®¿Ú1·¢ËÍÊý¾Ý
+	   while(USART_GetFlagStatus(USART1,USART_FLAG_TC)!=SET);//µÈ´ý·¢ËÍ½áÊø
+	 }
+	 USART_SendData(USART1,0x0d);//Ïò´®¿Ú1·¢ËÍÊý¾Ý
+   while(USART_GetFlagStatus(USART1,USART_FLAG_TC)!=SET);//µÈ´ý·¢ËÍ½áÊø 
+   USART_SendData(USART1,0x0a);//Ïò´®¿Ú1·¢ËÍÊý¾Ý
+   while(USART_GetFlagStatus(USART1,USART_FLAG_TC)!=SET);//µÈ´ý·¢ËÍ½áÊø
 }
+
 
 
 
@@ -186,140 +141,19 @@ void onesided(long nfill)
   */
 void powerMag(long nfill, char* strPara)
 {
-  int32_t lX,lY;
+  int16_t lX,lY;
   uint32_t i;
-
-  for (i=0; i < nfill; i++)
+  float X,Y,Mag;
+  for (i=0; i < nfill/2; i++)
   {
     lX= (lBUFOUT[i]<<16)>>16; /* sine_cosine --> cos */
     lY= (lBUFOUT[i] >> 16);   /* sine_cosine --> sin */    
-    {
-      float X=  64*((float)lX)/32768;
-      float Y = 64*((float)lY)/32768;
-      float Mag = sqrt(X*X+ Y*Y)/nfill;
-      lBUFMAG[i] = (uint32_t)(Mag*65536);
-    }    
+    X=  NPT*((float)lX)/32768;
+    Y = NPT*((float)lY)/32768;
+    Mag = sqrt(X*X+ Y*Y)/nfill;
+    lBUFMAG[i] = (uint32_t)(Mag*65536);   
   }
-  if (strPara == "1SIDED") onesided(nfill);
 }
-
-
-
-/**
-  * @brief  Displays the input array before filtering
-  * @param splayPos indicates the beginning Y address on LCD
-  * @retval : None
-  */
-void In_displayWaveform(uint32_t DisplayPos)
-{
-  uint8_t aScale;
-  uint16_t cln;
-
-  for (cln=0; cln < 64; cln++)       /* original upper limit was 60 */
-  {
-    /* Clear previous line */
-    LCD_SetTextColor(White);
-    LCD_DrawLine(48,DisplayPos-(2*cln),72,Vertical);
-    /* and go back to normal display mode */
-    LCD_SetTextColor(Black);
-    aScale = lBUFIN[cln]>>(10 + 16);  /* SINE IS LEFT ALIGNED */
-    if (aScale > 127)         /* Negative values */
-    {
-      aScale = (0xFF-aScale) + 1; /* Calc absolute value */
-      LCD_DrawLine(84-aScale,DisplayPos-(2*cln),aScale,Vertical);
-    }
-    else  /* Display positive values */
-    {
-      LCD_DrawLine(84,DisplayPos-(2*cln),aScale,Vertical);
-    }
-  }/* for */
-}
-
-
-
-
-/**
-  * @brief  Displays the output array after filtering
-  * @param splayPos indicates the beginning Y address on LCD
-  * @retval : None
-  */
-void Out_displayWaveform(uint32_t DisplayPos)
-{
-  uint8_t aScale;
-  uint16_t cln;
-
-  for (cln=0; cln < 64; cln++)    /* original upper limit was 60 */
-  {
-    aScale = lBUFOUT[cln]>>(10 + 16);  /* SINE IS LEFT ALIGNED */
-    if (aScale > 127)         /* Negative values */
-    {
-      aScale = (0xFF-aScale) + 1; /* Calc absolute value */
-      LCD_DrawLine(156-aScale,DisplayPos-(2*cln),aScale,Vertical);
-    }
-    else  /* Display positive values */
-    {
-      LCD_DrawLine(156,DisplayPos-(2*cln),aScale,Vertical);
-    }
-  }/* for */
-}
-
-
-
-/**
-  * @brief  Displays the power magnitude array following a FFT
-  * @param splayPos indicates the beginning Y address on LCD
-  *   : scale allows to normalize the result for optimal display
-  * @retval : None
-  */
-void displayPowerMag(uint32_t DisplayPos, uint32_t scale)
-{
-  uint16_t aScale;
-  uint16_t cln;
-
-  for (cln=0; cln < 64; cln++)
-  {
-    /* Clear previous line */
-    LCD_SetTextColor(White);
-    LCD_DrawLine(120,DisplayPos-(2*cln),72,Vertical);
-    /* and go back to normal display mode */
-    LCD_SetTextColor(Red);
-
-    aScale =lBUFMAG[cln]>>scale ; /* spectrum is always divided by two */
-    /* Power Mag contains only positive values */
-    LCD_DrawLine(192-aScale,DisplayPos-(2*cln),aScale,Vertical);
-  }/* for */
-}
-
-
-
-/**
-  * @brief  Displays the initial menu and then background frame
-  * @param  None
-  * @retval : None
-  */
-void DisplayTitle(void)
-{
-  uint8_t *ptr = "   STM32 DSP Demo   ";
-
-  LCD_DisplayStringLine(Line0, ptr);
-
-  ptr = " 64-pts Radix-4 FFT ";
-  LCD_DisplayStringLine(Line1, ptr);
-
-  ptr = "Press Key to freeze ";
-  LCD_DisplayStringLine(Line9, ptr);
-
-  {
-    unsigned long long Delay = 0x600000;
-    while (Delay--);
-    while (GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_9) == 0x00);
-  }
-
-  ptr = "   Sine   Dual sine ";
-  LCD_DisplayStringLine(Line9, ptr);
-}
-
-
 
 
 
@@ -334,6 +168,7 @@ void Delay(uint32_t nCount)
   /* Configure the systick */
   __enable_irq(); 
   	
+	
      /* Setup SysTick Timer for 10 msec interrupts */
   if (SysTick_Config(SystemFrequency /100)) /* SystemFrequency is defined in
    “system_stm32f10x.h” and equal to HCLK frequency */
@@ -350,6 +185,40 @@ void Delay(uint32_t nCount)
 }
 
 
+void STM_EVAL_COMInit(USART_InitTypeDef* USART_InitStruct)
+{
+	
+  USART_InitStructure.USART_BaudRate = 115200;
+  USART_InitStructure.USART_WordLength = USART_WordLength_8b;
+  USART_InitStructure.USART_StopBits = USART_StopBits_1;
+  USART_InitStructure.USART_Parity = USART_Parity_No;
+  USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
+  USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;
+
+  /* Enable GPIO clock */
+  RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA | RCC_APB2Periph_GPIOA | RCC_APB2Periph_AFIO, ENABLE);
+
+  RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1, ENABLE); 
+
+  /* Configure USART Tx as alternate function push-pull */
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9;
+  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  GPIO_Init(GPIOA, &GPIO_InitStructure);
+
+  /* Configure USART Rx as input floating */
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;
+  GPIO_Init(GPIOA, &GPIO_InitStructure);
+
+  /* USART configuration */
+  USART_Init(USART1, USART_InitStruct);
+    
+  /* Enable USART */
+  USART_Cmd(USART1, ENABLE);
+}
+
+
 
 
 /**
@@ -359,7 +228,6 @@ void Delay(uint32_t nCount)
   */
 void DSPDemoInit(void)
 {
-  GPIO_InitTypeDef GPIO_InitStructure;
   ErrorStatus HSEStartUpStatus = ERROR;
 
   /* SYSCLK, HCLK, PCLK2 and PCLK1 configuration -----------------------------*/
@@ -409,40 +277,15 @@ void DSPDemoInit(void)
     }
   }
 
-  /* Enable GPIOA, GPIOB, GPIOC, GPIOD, GPIOE and AFIO clocks */
-  RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA | RCC_APB2Periph_GPIOB |RCC_APB2Periph_GPIOC
-         | RCC_APB2Periph_GPIOD | RCC_APB2Periph_GPIOE | RCC_APB2Periph_AFIO, ENABLE);
 
   /* TIM1 Periph clock enable */
   RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM1, ENABLE);
   RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE);
 
-
-  /* SPI2 Periph clock enable */
-  RCC_APB1PeriphClockCmd(RCC_APB1Periph_SPI2, ENABLE);
-
   /* TIM2  and TIM4 clocks enable */
   RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2 | RCC_APB1Periph_TIM4, ENABLE);
 
-  /*------------------- Resources Initialization -----------------------------*/
-  /* GPIO Configuration */
-  /* Configure PC.06 and PC.07 as Output push-pull */
-  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6 | GPIO_Pin_7;
-  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
-  GPIO_Init(GPIOC, &GPIO_InitStructure);
 
- 
-
-  /*------------------- Drivers Initialization -------------------------------*/
-  /* Initialize the LCD */
-  STM3210B_LCD_Init();
-
-  /* Clear the LCD */
-  LCD_Clear(White);
-
-  LCD_SetTextColor(White);
-  LCD_SetBackColor(Black);
 
 }
 

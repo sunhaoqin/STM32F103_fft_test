@@ -1,0 +1,185 @@
+Dependencies for Project 'FFT_Demo', Target 'STM3210B-EVAL': (DO NOT MODIFY !)
+F (..\src\main.c)(0x5ABE0E29)(-c --cpu Cortex-M3 -D__EVAL -g -O3 --apcs=interwork --split_sections -I..\inc -I..\..\..\Libraries\CMSIS\Core\CM3 -I..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\..\..\Libraries\STM32F10x_DSP_Lib\inc -I..\..\HARDWARE\ADC-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD-o .\obj\main.o --omf_browse .\obj\main.crf --depend .\obj\main.d)
+I (..\..\..\Libraries\CMSIS\Core\CM3\stm32f10x.h)(0x49F93D7E)
+I (..\..\..\Libraries\CMSIS\Core\CM3\core_cm3.h)(0x49F93D7E)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7C554)
+I (..\..\..\Libraries\CMSIS\Core\CM3\system_stm32f10x.h)(0x49F93D7E)
+I (..\inc\stm32f10x_conf.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_flash.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_spi.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x49F93D80)
+I (C:\Keil\ARM\ARMCC\include\math.h)(0x51C7C554)
+I (..\..\..\Libraries\STM32F10x_DSP_Lib\inc\stm32_dsp.h)(0x49F93D80)
+I (..\..\..\Libraries\STM32F10x_DSP_Lib\inc\table_fft.h)(0x49F93D80)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x49F93D82)
+I (..\..\HARDWARE\ADC\adc.h)(0x5055357C)
+I (..\..\HARDWARE\ADC\sys.h)(0x550EC367)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h)(0x49F93D80)
+I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x51C7C554)
+F (..\src\stm32f10x_it.c)(0x49F93D82)(-c --cpu Cortex-M3 -D__EVAL -g -O3 --apcs=interwork --split_sections -I..\inc -I..\..\..\Libraries\CMSIS\Core\CM3 -I..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\..\..\Libraries\STM32F10x_DSP_Lib\inc -I..\..\HARDWARE\ADC-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD-o .\obj\stm32f10x_it.o --omf_browse .\obj\stm32f10x_it.crf --depend .\obj\stm32f10x_it.d)
+I (..\inc\stm32f10x_it.h)(0x49F93D82)
+I (..\..\..\Libraries\CMSIS\Core\CM3\stm32f10x.h)(0x49F93D7E)
+I (..\..\..\Libraries\CMSIS\Core\CM3\core_cm3.h)(0x49F93D7E)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7C554)
+I (..\..\..\Libraries\CMSIS\Core\CM3\system_stm32f10x.h)(0x49F93D7E)
+I (..\inc\stm32f10x_conf.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_flash.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_spi.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x49F93D80)
+F (..\src\stm3210b_lcd.c)(0x49F93D82)(-c --cpu Cortex-M3 -D__EVAL -g -O3 --apcs=interwork --split_sections -I..\inc -I..\..\..\Libraries\CMSIS\Core\CM3 -I..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\..\..\Libraries\STM32F10x_DSP_Lib\inc -I..\..\HARDWARE\ADC-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD-o .\obj\stm3210b_lcd.o --omf_browse .\obj\stm3210b_lcd.crf --depend .\obj\stm3210b_lcd.d)
+I (..\inc\stm3210b_lcd.h)(0x49F93D82)
+I (..\..\..\Libraries\CMSIS\Core\CM3\stm32f10x.h)(0x49F93D7E)
+I (..\..\..\Libraries\CMSIS\Core\CM3\core_cm3.h)(0x49F93D7E)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7C554)
+I (..\..\..\Libraries\CMSIS\Core\CM3\system_stm32f10x.h)(0x49F93D7E)
+I (..\inc\stm32f10x_conf.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_flash.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_spi.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x49F93D80)
+I (..\inc\fonts.h)(0x49F93D82)
+F (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_spi.c)(0x49F93D82)(-c --cpu Cortex-M3 -D__EVAL -g -O3 --apcs=interwork --split_sections -I..\inc -I..\..\..\Libraries\CMSIS\Core\CM3 -I..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\..\..\Libraries\STM32F10x_DSP_Lib\inc -I..\..\HARDWARE\ADC-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD-o .\obj\stm32f10x_spi.o --omf_browse .\obj\stm32f10x_spi.crf --depend .\obj\stm32f10x_spi.d)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_spi.h)(0x49F93D82)
+I (..\..\..\Libraries\CMSIS\Core\CM3\stm32f10x.h)(0x49F93D7E)
+I (..\..\..\Libraries\CMSIS\Core\CM3\core_cm3.h)(0x49F93D7E)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7C554)
+I (..\..\..\Libraries\CMSIS\Core\CM3\system_stm32f10x.h)(0x49F93D7E)
+I (..\inc\stm32f10x_conf.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_flash.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x49F93D80)
+F (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\src\misc.c)(0x49F93D82)(-c --cpu Cortex-M3 -D__EVAL -g -O3 --apcs=interwork --split_sections -I..\inc -I..\..\..\Libraries\CMSIS\Core\CM3 -I..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\..\..\Libraries\STM32F10x_DSP_Lib\inc -I..\..\HARDWARE\ADC-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD-o .\obj\misc.o --omf_browse .\obj\misc.crf --depend .\obj\misc.d)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x49F93D80)
+I (..\..\..\Libraries\CMSIS\Core\CM3\stm32f10x.h)(0x49F93D7E)
+I (..\..\..\Libraries\CMSIS\Core\CM3\core_cm3.h)(0x49F93D7E)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7C554)
+I (..\..\..\Libraries\CMSIS\Core\CM3\system_stm32f10x.h)(0x49F93D7E)
+I (..\inc\stm32f10x_conf.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_flash.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_spi.h)(0x49F93D82)
+F (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_flash.c)(0x49F93D82)(-c --cpu Cortex-M3 -D__EVAL -g -O3 --apcs=interwork --split_sections -I..\inc -I..\..\..\Libraries\CMSIS\Core\CM3 -I..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\..\..\Libraries\STM32F10x_DSP_Lib\inc -I..\..\HARDWARE\ADC-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD-o .\obj\stm32f10x_flash.o --omf_browse .\obj\stm32f10x_flash.crf --depend .\obj\stm32f10x_flash.d)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_flash.h)(0x49F93D82)
+I (..\..\..\Libraries\CMSIS\Core\CM3\stm32f10x.h)(0x49F93D7E)
+I (..\..\..\Libraries\CMSIS\Core\CM3\core_cm3.h)(0x49F93D7E)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7C554)
+I (..\..\..\Libraries\CMSIS\Core\CM3\system_stm32f10x.h)(0x49F93D7E)
+I (..\inc\stm32f10x_conf.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_spi.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x49F93D80)
+F (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c)(0x49F93D82)(-c --cpu Cortex-M3 -D__EVAL -g -O3 --apcs=interwork --split_sections -I..\inc -I..\..\..\Libraries\CMSIS\Core\CM3 -I..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\..\..\Libraries\STM32F10x_DSP_Lib\inc -I..\..\HARDWARE\ADC-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD-o .\obj\stm32f10x_gpio.o --omf_browse .\obj\stm32f10x_gpio.crf --depend .\obj\stm32f10x_gpio.d)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h)(0x49F93D82)
+I (..\..\..\Libraries\CMSIS\Core\CM3\stm32f10x.h)(0x49F93D7E)
+I (..\..\..\Libraries\CMSIS\Core\CM3\core_cm3.h)(0x49F93D7E)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7C554)
+I (..\..\..\Libraries\CMSIS\Core\CM3\system_stm32f10x.h)(0x49F93D7E)
+I (..\inc\stm32f10x_conf.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_flash.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_spi.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x49F93D80)
+F (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c)(0x49F93D82)(-c --cpu Cortex-M3 -D__EVAL -g -O3 --apcs=interwork --split_sections -I..\inc -I..\..\..\Libraries\CMSIS\Core\CM3 -I..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\..\..\Libraries\STM32F10x_DSP_Lib\inc -I..\..\HARDWARE\ADC-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD-o .\obj\stm32f10x_rcc.o --omf_browse .\obj\stm32f10x_rcc.crf --depend .\obj\stm32f10x_rcc.d)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x49F93D82)
+I (..\..\..\Libraries\CMSIS\Core\CM3\stm32f10x.h)(0x49F93D7E)
+I (..\..\..\Libraries\CMSIS\Core\CM3\core_cm3.h)(0x49F93D7E)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7C554)
+I (..\..\..\Libraries\CMSIS\Core\CM3\system_stm32f10x.h)(0x49F93D7E)
+I (..\inc\stm32f10x_conf.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_flash.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_spi.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x49F93D80)
+F (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c)(0x49F93D82)(-c --cpu Cortex-M3 -D__EVAL -g -O3 --apcs=interwork --split_sections -I..\inc -I..\..\..\Libraries\CMSIS\Core\CM3 -I..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\..\..\Libraries\STM32F10x_DSP_Lib\inc -I..\..\HARDWARE\ADC-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD-o .\obj\stm32f10x_usart.o --omf_browse .\obj\stm32f10x_usart.crf --depend .\obj\stm32f10x_usart.d)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x49F93D82)
+I (..\..\..\Libraries\CMSIS\Core\CM3\stm32f10x.h)(0x49F93D7E)
+I (..\..\..\Libraries\CMSIS\Core\CM3\core_cm3.h)(0x49F93D7E)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7C554)
+I (..\..\..\Libraries\CMSIS\Core\CM3\system_stm32f10x.h)(0x49F93D7E)
+I (..\inc\stm32f10x_conf.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_flash.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_spi.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x49F93D80)
+F (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_adc.c)(0x49F93D82)(-c --cpu Cortex-M3 -D__EVAL -g -O3 --apcs=interwork --split_sections -I..\inc -I..\..\..\Libraries\CMSIS\Core\CM3 -I..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\..\..\Libraries\STM32F10x_DSP_Lib\inc -I..\..\HARDWARE\ADC-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD-o .\obj\stm32f10x_adc.o --omf_browse .\obj\stm32f10x_adc.crf --depend .\obj\stm32f10x_adc.d)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h)(0x49F93D80)
+I (..\..\..\Libraries\CMSIS\Core\CM3\stm32f10x.h)(0x49F93D7E)
+I (..\..\..\Libraries\CMSIS\Core\CM3\core_cm3.h)(0x49F93D7E)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7C554)
+I (..\..\..\Libraries\CMSIS\Core\CM3\system_stm32f10x.h)(0x49F93D7E)
+I (..\inc\stm32f10x_conf.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_flash.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_spi.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x49F93D80)
+F (..\..\..\Libraries\CMSIS\Core\CM3\startup\arm\startup_stm32f10x_hd.s)(0x49F93D7E)()
+F (..\..\..\Libraries\CMSIS\Core\CM3\startup\arm\startup_stm32f10x_ld.s)(0x49F93D80)()
+F (..\..\..\Libraries\CMSIS\Core\CM3\startup\arm\startup_stm32f10x_md.s)(0x49F93D80)(--cpu Cortex-M3 --pd "__EVAL SETA 1" -g --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x--list .\list\startup_stm32f10x_md.lst --xref -o .\obj\startup_stm32f10x_md.o --depend .\obj\startup_stm32f10x_md.d)
+F (..\..\..\Libraries\STM32F10x_DSP_Lib\src\PID_C_stm32.c)(0x49F93D80)(-c --cpu Cortex-M3 -D__EVAL -g -O3 --apcs=interwork --split_sections -I..\inc -I..\..\..\Libraries\CMSIS\Core\CM3 -I..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\..\..\Libraries\STM32F10x_DSP_Lib\inc -I..\..\HARDWARE\ADC-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD-o .\obj\pid_c_stm32.o --omf_browse .\obj\pid_c_stm32.crf --depend .\obj\pid_c_stm32.d)
+I (..\..\..\Libraries\CMSIS\Core\CM3\stm32f10x.h)(0x49F93D7E)
+I (..\..\..\Libraries\CMSIS\Core\CM3\core_cm3.h)(0x49F93D7E)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7C554)
+I (..\..\..\Libraries\CMSIS\Core\CM3\system_stm32f10x.h)(0x49F93D7E)
+I (..\inc\stm32f10x_conf.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_flash.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_spi.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x49F93D80)
+I (..\..\..\Libraries\STM32F10x_DSP_Lib\inc\stm32_dsp.h)(0x49F93D80)
+F (..\..\..\Libraries\STM32F10x_DSP_Lib\src\iir_stm32.c)(0x49F93D80)(-c --cpu Cortex-M3 -D__EVAL -g -O3 --apcs=interwork --split_sections -I..\inc -I..\..\..\Libraries\CMSIS\Core\CM3 -I..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\..\..\Libraries\STM32F10x_DSP_Lib\inc -I..\..\HARDWARE\ADC-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD-o .\obj\iir_stm32.o --omf_browse .\obj\iir_stm32.crf --depend .\obj\iir_stm32.d)
+I (..\..\..\Libraries\STM32F10x_DSP_Lib\inc\stm32_dsp.h)(0x49F93D80)
+I (..\..\..\Libraries\CMSIS\Core\CM3\stm32f10x.h)(0x49F93D7E)
+I (..\..\..\Libraries\CMSIS\Core\CM3\core_cm3.h)(0x49F93D7E)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7C554)
+I (..\..\..\Libraries\CMSIS\Core\CM3\system_stm32f10x.h)(0x49F93D7E)
+I (..\inc\stm32f10x_conf.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_flash.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_spi.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x49F93D80)
+F (..\..\..\Libraries\STM32F10x_DSP_Lib\src\asm\arm\cr4_fft_64_stm32.s)(0x49F93D80)(--cpu Cortex-M3 --pd "__EVAL SETA 1" -g --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x--list .\list\cr4_fft_64_stm32.lst --xref -o .\obj\cr4_fft_64_stm32.o --depend .\obj\cr4_fft_64_stm32.d)
+F (..\..\..\Libraries\STM32F10x_DSP_Lib\src\asm\arm\cr4_fft_256_stm32.s)(0x49F93D80)(--cpu Cortex-M3 --pd "__EVAL SETA 1" -g --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x--list .\list\cr4_fft_256_stm32.lst --xref -o .\obj\cr4_fft_256_stm32.o --depend .\obj\cr4_fft_256_stm32.d)
+F (..\..\..\Libraries\STM32F10x_DSP_Lib\src\asm\arm\cr4_fft_1024_stm32.s)(0x49F93D80)(--cpu Cortex-M3 --pd "__EVAL SETA 1" -g --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x--list .\list\cr4_fft_1024_stm32.lst --xref -o .\obj\cr4_fft_1024_stm32.o --depend .\obj\cr4_fft_1024_stm32.d)
+F (..\..\..\Libraries\STM32F10x_DSP_Lib\src\asm\arm\fir_stm32.s)(0x49F93D80)(--cpu Cortex-M3 --pd "__EVAL SETA 1" -g --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x--list .\list\fir_stm32.lst --xref -o .\obj\fir_stm32.o --depend .\obj\fir_stm32.d)
+F (..\..\..\Libraries\STM32F10x_DSP_Lib\src\asm\arm\iirarma_stm32.s)(0x49F93D80)(--cpu Cortex-M3 --pd "__EVAL SETA 1" -g --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x--list .\list\iirarma_stm32.lst --xref -o .\obj\iirarma_stm32.o --depend .\obj\iirarma_stm32.d)
+F (..\..\..\Libraries\STM32F10x_DSP_Lib\src\asm\arm\PID_stm32.s)(0x49F93D80)(--cpu Cortex-M3 --pd "__EVAL SETA 1" -g --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x--list .\list\pid_stm32.lst --xref -o .\obj\pid_stm32.o --depend .\obj\pid_stm32.d)
+F (..\readme.txt)(0x49F93D82)()
+F (..\..\..\Libraries\CMSIS\Core\CM3\core_cm3.c)(0x49F93D7E)(-c --cpu Cortex-M3 -D__EVAL -g -O3 --apcs=interwork --split_sections -I..\inc -I..\..\..\Libraries\CMSIS\Core\CM3 -I..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\..\..\Libraries\STM32F10x_DSP_Lib\inc -I..\..\HARDWARE\ADC-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD-o .\obj\core_cm3.o --omf_browse .\obj\core_cm3.crf --depend .\obj\core_cm3.d)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7C554)
+F (..\..\..\Libraries\CMSIS\Core\CM3\system_stm32f10x.c)(0x49F93D7E)(-c --cpu Cortex-M3 -D__EVAL -g -O3 --apcs=interwork --split_sections -I..\inc -I..\..\..\Libraries\CMSIS\Core\CM3 -I..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\..\..\Libraries\STM32F10x_DSP_Lib\inc -I..\..\HARDWARE\ADC-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD-o .\obj\system_stm32f10x.o --omf_browse .\obj\system_stm32f10x.crf --depend .\obj\system_stm32f10x.d)
+I (..\..\..\Libraries\CMSIS\Core\CM3\stm32f10x.h)(0x49F93D7E)
+I (..\..\..\Libraries\CMSIS\Core\CM3\core_cm3.h)(0x49F93D7E)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7C554)
+I (..\..\..\Libraries\CMSIS\Core\CM3\system_stm32f10x.h)(0x49F93D7E)
+I (..\inc\stm32f10x_conf.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_flash.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_spi.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x49F93D80)
+F (..\..\HARDWARE\ADC\adc.c)(0x5ABDD424)(-c --cpu Cortex-M3 -D__EVAL -g -O3 --apcs=interwork --split_sections -I..\inc -I..\..\..\Libraries\CMSIS\Core\CM3 -I..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\..\..\Libraries\STM32F10x_DSP_Lib\inc -I..\..\HARDWARE\ADC-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD-o .\obj\adc.o --omf_browse .\obj\adc.crf --depend .\obj\adc.d)
+I (..\..\HARDWARE\ADC\adc.h)(0x5055357C)
+I (..\..\HARDWARE\ADC\sys.h)(0x550EC367)
+I (..\..\..\Libraries\CMSIS\Core\CM3\stm32f10x.h)(0x49F93D7E)
+I (..\..\..\Libraries\CMSIS\Core\CM3\core_cm3.h)(0x49F93D7E)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7C554)
+I (..\..\..\Libraries\CMSIS\Core\CM3\system_stm32f10x.h)(0x49F93D7E)
+I (..\inc\stm32f10x_conf.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_flash.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_spi.h)(0x49F93D82)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x49F93D80)
+I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h)(0x49F93D80)
