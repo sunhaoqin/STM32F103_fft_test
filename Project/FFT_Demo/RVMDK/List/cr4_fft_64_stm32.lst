@@ -742,16 +742,16 @@ Symbol: NPT
       At line 46 in file ..\..\..\Libraries\STM32F10x_DSP_Lib\src\asm\arm\cr4_f
 ft_64_stm32.s
    Uses
-      At line 135 in macro †Ù‡OPT
+      At line 135 in macro ®ÌOPT
       at line 223 in file ..\..\..\Libraries\STM32F10x_DSP_Lib\src\asm\arm\cr4_
 fft_64_stm32.s
-      At line 137 in macro †Ù‡OPT
+      At line 137 in macro ®ÌOPT
       at line 223 in file ..\..\..\Libraries\STM32F10x_DSP_Lib\src\asm\arm\cr4_
 fft_64_stm32.s
-      At line 139 in macro †Ù‡OPT
+      At line 139 in macro ®ÌOPT
       at line 223 in file ..\..\..\Libraries\STM32F10x_DSP_Lib\src\asm\arm\cr4_
 fft_64_stm32.s
-      At line 141 in macro †Ù‡OPT
+      At line 141 in macro ®ÌOPT
       at line 223 in file ..\..\..\Libraries\STM32F10x_DSP_Lib\src\asm\arm\cr4_
 fft_64_stm32.s
 

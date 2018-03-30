@@ -1,25 +1,3 @@
-/**
-  ******************************************************************************
-  * @file FFT_Demo/src/main.c 
-  * @author  MCD Application Team
-  * @version  V2.0.0
-  * @date  04/27/2009
-  * @brief  Main program body
-  ******************************************************************************
-  * @copy
-  *
-  * THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
-  * WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE
-  * TIME. AS A RESULT, STMICROELECTRONICS SHALL NOT BE HELD LIABLE FOR ANY
-  * DIRECT, INDIRECT OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING
-  * FROM THE CONTENT OF SUCH FIRMWARE AND/OR THE USE MADE BY CUSTOMERS OF THE
-  * CODING INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
-  *
-  * <h2><center>&copy; COPYRIGHT 2009 STMicroelectronics</center></h2>
-  */ 
-
-
-/* Includes ------------------------------------------------------------------*/
 #include "stm32f10x.h"
 #include <math.h>
 #include "stm32_dsp.h"
@@ -28,6 +6,8 @@
 #include "adc.h"
 #include "stm32f10x_adc.h"
 #include "stdio.h"
+#include "24tft.h"
+
 /** @addtogroup FFT_Demo
   * @{
   */ 
@@ -62,6 +42,7 @@ void powerMag(long nfill, char* strPara);
 void Send_String(const char *Data);
 void LED_Init(void);
 void adcfft(void);
+void GPIO_Config(void);
 /* Private functions ---------------------------------------------------------*/
 
 
@@ -77,6 +58,10 @@ int main(void)
 	STM_EVAL_COMInit(&USART_InitStructure);
   LED_Init();
 	Adc_Init();
+	GPIO_Config();
+	ILI9325_CMO24_Initial();
+  SPILCD_Clear(0x00);	
+	LCD_PutString(0,20,"1.2´ç OLED"); 
   while (1)
   {
 		adcfft();
@@ -129,7 +114,21 @@ void Send_String(const char *Data)
    while(USART_GetFlagStatus(USART1,USART_FLAG_TC)!=SET);//µÈ´ý·¢ËÍ½áÊø
 }
 
+void GPIO_Config(void)
+{
+	GPIO_InitTypeDef GPIO_InitStructure;
+	RCC_APB2PeriphClockCmd( RCC_APB2Periph_GPIOA, ENABLE);
 
+																	  //BL        //RS            CS          SCK          MISO         SDA    
+  GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_2 | GPIO_Pin_3 | GPIO_Pin_4 | GPIO_Pin_5 | GPIO_Pin_6 | GPIO_Pin_7;	
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;       
+  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  GPIO_Init(GPIOA, &GPIO_InitStructure);
+
+	
+//	GPIO_SetBits(GPIOA, GPIO_Pin_2);
+// 	GPIO_SetBits(GPIOC, GPIO_Pin_3 | GPIO_Pin_4 | GPIO_Pin_5);	 // turn off all led
+}
 
 
 

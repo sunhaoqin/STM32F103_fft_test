@@ -1,7 +1,6 @@
 --cpu Cortex-M3
 ".\obj\main.o"
 ".\obj\stm32f10x_it.o"
-".\obj\stm3210b_lcd.o"
 ".\obj\stm32f10x_spi.o"
 ".\obj\misc.o"
 ".\obj\stm32f10x_flash.o"
@@ -21,6 +20,7 @@
 ".\obj\core_cm3.o"
 ".\obj\system_stm32f10x.o"
 ".\obj\adc.o"
+".\obj\24tft.o"
 --strict --scatter ".\Obj\STM3210B-EVAL.sct"
 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
