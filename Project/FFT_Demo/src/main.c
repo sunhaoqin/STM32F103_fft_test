@@ -17,7 +17,7 @@
 /* Private define ------------------------------------------------------------*/
 #define PI2  6.28318530717959
 
-#define NPT 1024          /* NPT = No of FFT point*/
+#define NPT 256          /* NPT = No of FFT point*/
 #define DISPLAY_RIGHT 310 /* 224 for centered, 319 for right-aligned */
 #define DISPLAY_LEFT 150  /* 224 for centered, 319 for right-aligned */
 #define LED PBout(5)
@@ -61,9 +61,11 @@ int main(void)
 	GPIO_Config();
 	ILI9325_CMO24_Initial();
   SPILCD_Clear(0x00);	
-	LCD_PutString(0,20,"1.2´ç OLED"); 
+	//SPILCD_drawline(0,95); 
   while (1)
   {
+	  //DrawPixel(5,0,0xffff);
+		//SPILCD_drawline(0,0,3);
 		adcfft();
 	}
 }
@@ -71,19 +73,36 @@ int main(void)
 
 void adcfft(void)
 {
-	int i;
+	int i,k;
 	char j[8];
+	uint32_t show;
+	LED=0;
 	for(i=0;i<NPT;i++)
 	 {
-     lBUFIN[i]=(Get_Adc(ADC_Channel_8))<<16;
+     lBUFIN[i]=(Get_Adc_Average(ADC_Channel_8,24))<<16;    //48ms   5khz
 	 }
-	 cr4_fft_1024_stm32(lBUFOUT,lBUFIN, NPT);
+	 LED=1;
+	 cr4_fft_256_stm32(lBUFOUT,lBUFIN, NPT);
+	
 	 powerMag(NPT,"2SIDED");
-	 for(i=0;i<NPT/2;i++)
+	 //
+	 lBUFMAG[0]=0;
+	 SPILCD_Clear(0);
+	 //
+	 k=0;
+	 show=0;
+	 for(i=0;i<95;i++)
 	 {
-     sprintf(j,"%ld",lBUFMAG[i]);
-     Send_String(j);
-	 }
+		 if(show<lBUFMAG[i]) 
+		 {
+			 show=lBUFMAG[i];
+			 k=i;
+		 }
+		  //if(show>128) show =128;
+		  //sprintf(j,"%ld",show);
+      //Send_String(j);	 
+	 }	
+	 if(show>10) SPILCD_drawline(0,k,80);
 }
 
 void LED_Init(void)

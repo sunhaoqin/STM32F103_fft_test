@@ -362,7 +362,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER, STM32F10X_MD</Define>
               <Undefine></Undefine>
-              <IncludePath>..\inc;..\..\..\Libraries\CMSIS\Core\CM3;..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc;..\..\..\Libraries\STM32F10x_DSP_Lib\inc;..\..\HARDWARE\ADC</IncludePath>
+              <IncludePath>..\inc;..\..\..\Libraries\CMSIS\Core\CM3;..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc;..\..\..\Libraries\STM32F10x_DSP_Lib\inc;..\..\HARDWARE\ADC;..\..\HARDWARE\LCD</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -414,11 +414,6 @@
               <FileName>stm32f10x_it.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\src\stm32f10x_it.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm3210b_lcd.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\src\stm3210b_lcd.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -633,6 +628,11 @@
               <FileName>adc.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\HARDWARE\ADC\adc.c</FilePath>
+            </File>
+            <File>
+              <FileName>24tft.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\HARDWARE\LCD\24tft.c</FilePath>
             </File>
           </Files>
         </Group>

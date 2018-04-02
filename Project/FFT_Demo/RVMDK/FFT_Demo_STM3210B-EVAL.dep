@@ -1,5 +1,5 @@
 Dependencies for Project 'FFT_Demo', Target 'STM3210B-EVAL': (DO NOT MODIFY !)
-F (..\src\main.c)(0x5ABE1804)(-c --cpu Cortex-M3 -D__EVAL -g -O3 --apcs=interwork --split_sections -I..\inc -I..\..\..\Libraries\CMSIS\Core\CM3 -I..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\..\..\Libraries\STM32F10x_DSP_Lib\inc -I..\..\HARDWARE\ADC -I..\..\HARDWARE\LCD-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD-o .\obj\main.o --omf_browse .\obj\main.crf --depend .\obj\main.d)
+F (..\src\main.c)(0x5AC1A2C3)(-c --cpu Cortex-M3 -D__EVAL -g -O3 --apcs=interwork --split_sections -I..\inc -I..\..\..\Libraries\CMSIS\Core\CM3 -I..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\..\..\Libraries\STM32F10x_DSP_Lib\inc -I..\..\HARDWARE\ADC -I..\..\HARDWARE\LCD-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD-o .\obj\main.o --omf_browse .\obj\main.crf --depend .\obj\main.d)
 I (..\..\..\Libraries\CMSIS\Core\CM3\stm32f10x.h)(0x49F93D7E)
 I (..\..\..\Libraries\CMSIS\Core\CM3\core_cm3.h)(0x49F93D7E)
 I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7C554)
@@ -157,7 +157,7 @@ I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h)(0x49F93D8
 I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x49F93D82)
 I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_spi.h)(0x49F93D82)
 I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x49F93D80)
-F (..\..\HARDWARE\ADC\adc.c)(0x5ABDD424)(-c --cpu Cortex-M3 -D__EVAL -g -O3 --apcs=interwork --split_sections -I..\inc -I..\..\..\Libraries\CMSIS\Core\CM3 -I..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\..\..\Libraries\STM32F10x_DSP_Lib\inc -I..\..\HARDWARE\ADC -I..\..\HARDWARE\LCD-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD-o .\obj\adc.o --omf_browse .\obj\adc.crf --depend .\obj\adc.d)
+F (..\..\HARDWARE\ADC\adc.c)(0x5AC1A332)(-c --cpu Cortex-M3 -D__EVAL -g -O3 --apcs=interwork --split_sections -I..\inc -I..\..\..\Libraries\CMSIS\Core\CM3 -I..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\..\..\Libraries\STM32F10x_DSP_Lib\inc -I..\..\HARDWARE\ADC -I..\..\HARDWARE\LCD-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD-o .\obj\adc.o --omf_browse .\obj\adc.crf --depend .\obj\adc.d)
 I (..\..\HARDWARE\ADC\adc.h)(0x5055357C)
 I (..\..\HARDWARE\ADC\sys.h)(0x550EC367)
 I (..\..\..\Libraries\CMSIS\Core\CM3\stm32f10x.h)(0x49F93D7E)
@@ -171,7 +171,7 @@ I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x49F93D82
 I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_spi.h)(0x49F93D82)
 I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x49F93D80)
 I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h)(0x49F93D80)
-F (..\..\HARDWARE\LCD\24tft.c)(0x5ABE17BB)(-c --cpu Cortex-M3 -D__EVAL -g -O3 --apcs=interwork --split_sections -I..\inc -I..\..\..\Libraries\CMSIS\Core\CM3 -I..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\..\..\Libraries\STM32F10x_DSP_Lib\inc -I..\..\HARDWARE\ADC -I..\..\HARDWARE\LCD-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD-o .\obj\24tft.o --omf_browse .\obj\24tft.crf --depend .\obj\24tft.d)
+F (..\..\HARDWARE\LCD\24tft.c)(0x5AC1A2DF)(-c --cpu Cortex-M3 -D__EVAL -g -O3 --apcs=interwork --split_sections -I..\inc -I..\..\..\Libraries\CMSIS\Core\CM3 -I..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\..\..\Libraries\STM32F10x_DSP_Lib\inc -I..\..\HARDWARE\ADC -I..\..\HARDWARE\LCD-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD-o .\obj\24tft.o --omf_browse .\obj\24tft.crf --depend .\obj\24tft.d)
 I (..\..\HARDWARE\LCD\24tft.h)(0x5ABE177D)
 I (..\..\..\Libraries\CMSIS\Core\CM3\stm32f10x.h)(0x49F93D7E)
 I (..\..\..\Libraries\CMSIS\Core\CM3\core_cm3.h)(0x49F93D7E)

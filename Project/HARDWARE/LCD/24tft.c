@@ -1,6 +1,6 @@
 #include "24tft.h"
 #include "ASCII.h"
-#include "GB1616.h"	//16*16汉字字模
+#include "GB1616.h"	//16*16潞潞脳脰脳脰脛拢
 
 #define SPILCD_W 176
 #define SPILCD_H 240
@@ -59,39 +59,39 @@ void LCD_WriteData(unsigned short dat)
     LCD_WriteByteSPI(dat);
 }
 
-//函数名：LCD_WR_REG
-//参  数：无
-//        准备开始写入GRAM
+//潞炉脢媒脙没拢潞LCD_WR_REG
+//虏脦  脢媒拢潞脦脼
+//        脳录卤赂驴陋脢录脨麓脠毛GRAM
 void SPILCD_WriteRAM_Prepare(void)
 {
-	LCD_WriteRegIndex(0x22);   //写RAM
+	LCD_WriteRegIndex(0x22);   //脨麓RAM
 }	 
 
 /*************************************************
-函数名：Lcd光标起点定位函数
-功能：指定320240液晶上的一点作为写数据的起始点
-入口参数：x 坐标 0~239
-          y 坐标 0~319
-返回值：无
+潞炉脢媒脙没拢潞Lcd鹿芒卤锚脝冒碌茫露篓脦禄潞炉脢媒
+鹿娄脛脺拢潞脰赂露篓320240脪潞戮搂脡脧碌脛脪禄碌茫脳梅脦陋脨麓脢媒戮脻碌脛脝冒脢录碌茫
+脠毛驴脷虏脦脢媒拢潞x 脳酶卤锚 0~239
+          y 脳酶卤锚 0~319
+路碌禄脴脰碌拢潞脦脼
 *************************************************/
 void Lcd_SetCursor(u16 x,u16 y)
 { 
   LCD_WriteRegIndex(0x20);
-  LCD_WriteData(x);//水平坐标
+  LCD_WriteData(x);//脣庐脝陆脳酶卤锚
   LCD_WriteRegIndex(0x21);
-  LCD_WriteData(y);//垂直坐标 
+  LCD_WriteData(y);//麓鹿脰卤脳酶卤锚 
 } 
 
-//函数名：LCD_WR_REG
-//参  数：无
-//        写GRAM数据
+//潞炉脢媒脙没拢潞LCD_WR_REG
+//虏脦  脢媒拢潞脦脼
+//        脨麓GRAM脢媒戮脻
 void SPILCD_WriteRAM(unsigned short RGB_Code)
 {							    
     LCD_WriteData(RGB_Code); 
 }
-//函数名：LCD_SetWindow
-//参  数：Xpos:横坐标
-//				Ypos:纵坐标
+//潞炉脢媒脙没拢潞LCD_SetWindow
+//虏脦  脢媒拢潞Xpos:潞谩脳酶卤锚
+//				Ypos:脳脻脳酶卤锚
 void SPILCD_SetWindow(unsigned short xstat,unsigned short xend,unsigned short ystat,unsigned short yend)
 {
 	//HX8367-A
@@ -110,22 +110,22 @@ void SPILCD_SetWindow(unsigned short xstat,unsigned short xend,unsigned short ys
 	 LCD_WriteRegIndex(0x22);
 
 }
-//开启反色显示
+//驴陋脝么路麓脡芦脧脭脢戮
 void LCD_InvDisplayOn()
 {
   LCD_WriteRegIndex(0x21);  
 }
-//关闭反色显示
+//鹿脴卤脮路麓脡芦脧脭脢戮
 void LCD_InvDisplayOff()
 {
   LCD_WriteRegIndex(0x20); 
 }
 
 /******************************************
-函数名：Lcd写命令函数
-功能：向Lcd指定位置写入应有命令或数据
-入口参数：Index 要寻址的寄存器地址
-          ConfigTemp 写入的数据或命令值
+潞炉脢媒脙没拢潞Lcd脨麓脙眉脕卯潞炉脢媒
+鹿娄脛脺拢潞脧貌Lcd脰赂露篓脦禄脰脙脨麓脠毛脫娄脫脨脙眉脕卯禄貌脢媒戮脻
+脠毛驴脷虏脦脢媒拢潞Index 脪陋脩掳脰路碌脛录脛麓忙脝梅碌脴脰路
+          ConfigTemp 脨麓脠毛碌脛脢媒戮脻禄貌脙眉脕卯脰碌
 ******************************************/
 void LCD_WR_REG(u16 Index,u16 CongfigTemp)
 {
@@ -135,7 +135,7 @@ void LCD_WR_REG(u16 Index,u16 CongfigTemp)
 
 void ILI9325_CMO24_Initial(void)
 {
-	//复位
+	//赂麓脦禄
 	GPIO_ResetBits(GPIOA, GPIO_Pin_2);Delayms(100);
 	GPIO_SetBits(GPIOA, GPIO_Pin_2);Delayms(100);
 	
@@ -144,15 +144,15 @@ void ILI9325_CMO24_Initial(void)
 
 	WriteComm(0xae);
 
-	WriteComm(0x15);    //   设置列地址
+	WriteComm(0x15);    //   脡猫脰脙脕脨碌脴脰路
 	WriteComm(0x00);    //  start column   0
 	WriteComm(0x3f);    //  end column   127
 
-	WriteComm(0x75);    //   设置行地址
+	WriteComm(0x75);    //   脡猫脰脙脨脨碌脴脰路
 	WriteComm(0x00);    //  start row   0
 	WriteComm(0x7f);    //  end row   127
 
-	WriteComm(0x81);	 // 设置对比度
+	WriteComm(0x81);	 // 脡猫脰脙露脭卤脠露脠
 	WriteComm(0x80);
 
 
@@ -208,31 +208,31 @@ void ILI9325_CMO24_Initial(void)
 	WriteComm(0xaf); 
 }
 
-//函数名：SPILCD_Init
-//参  数：X Y 坐标 
-//        在X Y上打点
+//潞炉脢媒脙没拢潞SPILCD_Init
+//虏脦  脢媒拢潞X Y 脳酶卤锚 
+//        脭脷X Y脡脧麓貌碌茫
 void SPILCD_DrawPoint(unsigned short x,unsigned short y,unsigned short color)
 {
-	SPILCD_SetWindow(x,x+1,y,y+1);//设置光标位置 
-	SPILCD_WriteRAM_Prepare();     //开始写入GRAM	 
+	SPILCD_SetWindow(x,x+1,y,y+1);//脡猫脰脙鹿芒卤锚脦禄脰脙 
+	SPILCD_WriteRAM_Prepare();     //驴陋脢录脨麓脠毛GRAM	 
 	SPILCD_WriteRAM(color);
 }
 void SPILCD_Fill(unsigned short xsta,unsigned short ysta,unsigned short xend,unsigned short yend,unsigned short color)
 {                    
 	unsigned short i,j;
-	//设置窗口		
+	//脡猫脰脙麓掳驴脷		
 	SPILCD_SetWindow(xsta,xend,ysta,yend);
 	for(i=xsta;i<=xend;i++)
 		for(j=ysta;j<=yend;j++)
 	{
-		   	SPILCD_WriteRAM(color);	  //显示所填充的颜色. 
+		   	SPILCD_WriteRAM(color);	  //脧脭脢戮脣霉脤卯鲁盲碌脛脩脮脡芦. 
 // 		k=40000;while(k--);
 	}
-	//恢复设置
+	//禄脰赂麓脡猫脰脙
 	SPILCD_SetWindow(0,SPILCD_W-1,0,SPILCD_H-1);	    
 }
-//函数名：SPILCD_Clear
-//参  数：Color 颜色      
+//潞炉脢媒脙没拢潞SPILCD_Clear
+//虏脦  脢媒拢潞Color 脩脮脡芦      
 void SPILCD_Clear(unsigned short Color)
 {
 	unsigned short x,y;  
@@ -247,13 +247,13 @@ SPI_CS(0);
 	for(x=0;x<128;x++)
 		for(y=0;y<48;y++)
 	{
-		SPILCD_WriteRAM(Color);//显示所填充的颜色. 
+		SPILCD_WriteRAM(Color);//脧脭脢戮脣霉脤卯鲁盲碌脛脩脮脡芦. 
 // 		i=40000;while(i--);
 	}
 	SPI_CS(1);
 } 
-//函数名：SPILCD_Clear_Fast
-//参  数：single_Color 单色  只能是0或1，0是黑色，1为白色      
+//潞炉脢媒脙没拢潞SPILCD_Clear_Fast
+//虏脦  脢媒拢潞single_Color 碌楼脡芦  脰禄脛脺脢脟0禄貌1拢卢0脢脟潞脷脡芦拢卢1脦陋掳脳脡芦      
 void SPILCD_Clear_Fast(unsigned char single_Color)
 {
 	unsigned int x,y;
@@ -271,23 +271,23 @@ void SPILCD_Clear_Fast(unsigned char single_Color)
 } 
 //------------------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------------
-//SPILCD DRIVER  LV2层    ----   LV1 在LV0的基础上实现
-//单字符显示
-//字符串显示
-//数字显示
+//SPILCD DRIVER  LV2虏茫    ----   LV1 脭脷LV0碌脛禄霉麓隆脡脧脢碌脧脰
+//碌楼脳脰路没脧脭脢戮
+//脳脰路没麓庐脧脭脢戮
+//脢媒脳脰脧脭脢戮
 
-//函数名：SPILCD_ShowChar
-//参  数：
+//潞炉脢媒脙没拢潞SPILCD_ShowChar
+//虏脦  脢媒拢潞
 //(x,y): 
-//num:要显示的字符:" "--->"~"
-//size:字体大小 12/16
-//mode:叠加方式(1)还是非叠加方式(0)
+//num:脪陋脧脭脢戮碌脛脳脰路没:" "--->"~"
+//size:脳脰脤氓麓贸脨隆 12/16
+//mode:碌镁录脫路陆脢陆(1)禄鹿脢脟路脟碌镁录脫路陆脢陆(0)
 void SPILCD_ShowChar(unsigned char x,unsigned char y,unsigned char num)
 {       
 	unsigned char temp;
 	unsigned int pos,t,i;  
 	unsigned char size; 
-	size=16;	//找到字体大小
+	size=16;	//脮脪碌陆脳脰脤氓麓贸脨隆
   WriteComm(0x15);//SET COLUMN ADDR 
 	WriteComm(x); 
 	WriteComm(x+3); 
@@ -296,13 +296,13 @@ void SPILCD_ShowChar(unsigned char x,unsigned char y,unsigned char num)
 	WriteComm(0x0+y+15); 
 	lcd_RS(1);
 	SPI_CS(0);  
-	num=num-' ';//得到偏移后的值
+	num=num-' ';//碌脙碌陆脝芦脪脝潞贸碌脛脰碌
 	i=num*16;
 
 		for(pos=0;pos<size;pos++)
 		{
 
-			temp=nAsciiDot[i+pos];	//调通调用艺术字体
+			temp=nAsciiDot[i+pos];	//碌梅脥篓碌梅脫脙脪脮脢玫脳脰脤氓
 			for(t=0;t<8;t++)
 		   {                 
 		      if(temp&0x80)
@@ -333,7 +333,7 @@ void PutGB1616(unsigned char x, unsigned char  y, unsigned char c[2])
   SPI_CS(0);	
 
 // 	SPILCD_SetWindow(0,SPILCD_H-1,0,SPILCD_W-1);
-	for (k=0;k<64;k++) { //64标示自建汉字库中的个数，循环查询内码
+	for (k=0;k<64;k++) { //64卤锚脢戮脳脭陆篓潞潞脳脰驴芒脰脨碌脛赂枚脢媒拢卢脩颅禄路虏茅脩炉脛脷脗毛
 	  if ((codeGB_16[k].Index[0]==c[0])&&(codeGB_16[k].Index[1]==c[1]))
 			{ 
     	for(i=0;i<32;i++) 
@@ -373,9 +373,9 @@ void LCD_PutString(unsigned char x, unsigned char y, unsigned char *s)
 		}
 }
 /******************************************
-函数名：Lcd图像填充100*100
-功能：向Lcd指定位置填充图像
-入口参数：
+潞炉脢媒脙没拢潞Lcd脥录脧帽脤卯鲁盲100*100
+鹿娄脛脺拢潞脧貌Lcd脰赂露篓脦禄脰脙脤卯鲁盲脥录脧帽
+脠毛驴脷虏脦脢媒拢潞
 ******************************************/
 void LCD_Fill_Pic(u16 x, u16 y,u16 pic_H, u16 pic_V, const unsigned char* pic)
 {
@@ -388,6 +388,29 @@ void LCD_Fill_Pic(u16 x, u16 y,u16 pic_H, u16 pic_V, const unsigned char* pic)
 	{
     LCD_WriteByteSPI(pic[i]);
 	}
-// 	SPILCD_SetWindow(0,319,0,239);//写完图片后恢复整个显示区域
+// 	SPILCD_SetWindow(0,319,0,239);//脨麓脥锚脥录脝卢潞贸禄脰赂麓脮没赂枚脧脭脢戮脟酶脫貌
 
 }
+
+void SPILCD_drawline(unsigned char x,unsigned char y,uint32_t len)
+{       
+	unsigned char temp,pos;
+	unsigned int t,i;  
+	unsigned char size; 
+  WriteComm(0x15);//SET COLUMN ADDR 
+	WriteComm(x); 
+	WriteComm(x+63); 
+	WriteComm(0x75);//SET ROW ADDR 
+	WriteComm(y); 
+	WriteComm(y); 
+	lcd_RS(1);
+	SPI_CS(0);
+	for(pos=0;pos<len;pos++)
+	{             
+		LCD_WriteoneSPI(0xff);
+	}	 
+		for(pos=0;pos<128-len;pos++)
+	{             
+		LCD_WriteoneSPI(0x00);
+	}	 
+}  
